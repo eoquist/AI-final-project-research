@@ -1,4 +1,7 @@
--- MarI/O by SethBling
+-- Neuro
+-- Evolution of
+-- Augmenting
+-- Technologies
  
 if gameinfo.getromname() == "Super Mario World (USA)" then
 	Filename = "DP1.state"
@@ -42,11 +45,11 @@ TimeoutConstant = 20
  
 MaxNodes = 1000000
 --  ///////////////////////////////////////////////////////////////////////////////////////
- 
+--  Do not trust ROM maps
 function getPositions()
 	if gameinfo.getromname() == "Super Mario World (USA)" then
-		marioX = memory.read_s16_le(0x94)
-		marioY = memory.read_s16_le(0x96)
+		marioX = memory.read_s16_le(0x94) -- can guarantee that $000094 controls x movement
+		marioY = memory.read_s16_le(0x96) -- I will believe this
  
 		local layer1x = memory.read_s16_le(0x1A);
 		local layer1y = memory.read_s16_le(0x1C);
