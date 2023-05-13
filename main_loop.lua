@@ -3,7 +3,6 @@
     Neuro Evolution of Augmenting Technologies [NEAT]
 ]] 
 
-
 --=========================================================================================
 -- MAIN
 --=========================================================================================
@@ -46,8 +45,14 @@ while true do
 
     local timeoutBonus = pool.currentFrame / 4
     if timeout + timeoutBonus <= 0 then
-        local fitness = rightmost - pool.currentFrame / 2
-        if gameinfo.getromname() == "Super Mario World (USA)" and rightmost > 4816 then
+
+        local coins = game.getCoins() - startCoins
+        local coinScoreFitness = (coins * 50) + (score * 0.2)
+
+		local score = game.getScore() - startScore
+        local fitness = coinScoreFitness + rightmost - pool.currentFrame / 2
+
+        if rightmost > 4816 then
             fitness = fitness + 1000
         end
         if fitness == 0 then -- why

@@ -100,6 +100,11 @@ function getInputs()
     return inputs
 end
 
+function getCoins()
+	local coins = memory.readbyte(0x0DBF)
+	return coins
+end
+
 function clearJoypad()
     controller = {}
     for b = 1, #ButtonNames do

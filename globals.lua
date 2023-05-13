@@ -17,6 +17,7 @@ y = nil
 rightmost = nil --> initializeRun
 pool = nil --> initializePool
 controller = nil --> clearJoypad
+coins = nil
 
 
 Population = 300
